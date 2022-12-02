@@ -14,4 +14,17 @@ fun main() {
     val input = readInput("Day01")
     println(part1(input))
     println(part2(input))
+
+    val tama=input.count() {it.isBlank() }+1
+
+    val listacalorias= MutableList<Int>(tama, {0})
+    var grupo=0
+    input.forEach {
+        if (it.isBlank())
+            grupo++
+        else
+            listacalorias[grupo]=+it.toInt()
+    }
+    println(listacalorias.max())
+    println(listacalorias.indexOf(listacalorias.max()))
 }
